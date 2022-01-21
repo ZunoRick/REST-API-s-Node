@@ -1,0 +1,26 @@
+{
+  "name": "rest-apis-node",
+  "version": "1.0.0",
+  "description": "Aprendiendo a Crear REST API's",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZunoRick/REST-API-s-Node.git"
+  },
+  "author": "Ricardo Zuno",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZunoRick/REST-API-s-Node/issues"
+  },
+  "homepage": "https://github.com/ZunoRick/REST-API-s-Node#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongoose": "^6.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
