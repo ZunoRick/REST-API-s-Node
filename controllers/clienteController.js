@@ -5,14 +5,24 @@ exports.nuevoCliente = async (req, res, next) =>{
     const cliente = new Clientes(req.body);
 
     try {
+        const existeCliente = await Clientes.findOne({ email: req.body.email });
+
+        if (existeCliente) {
+            res.send({
+                code: 11000,
+                mensaje: 'Esa cuenta ya está registrada'
+            });
+            return next();
+        }
+
         //Almacenar el registro
         await cliente.save();
-        res.json({
+        res.send({
             mensaje: 'Se agregó un nuevo cliente'
         });
     } catch (error) {
         //Si hay un error
-        console.log(error);
+        res.send(error);
         next();
     }
 }
@@ -51,7 +61,7 @@ exports.actualizarCliente = async (req, res, next) =>{
         });
         res.json(cliente);
     } catch (error) {
-        console.log(error);
+        res.rend(error);
         next();
     }
 }
@@ -60,7 +70,7 @@ exports.actualizarCliente = async (req, res, next) =>{
 exports.eliminarCliente = async (req, res, next) =>{
     try {
         await Clientes.findOneAndDelete({ _id: req.params.idCliente });
-        res.json({ mensaje: 'El cliente se ha eliminado'});
+        res.send({ mensaje: 'El cliente se ha eliminado'});
     } catch (error) {
         console.log(error);
         next();

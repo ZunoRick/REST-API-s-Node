@@ -17,7 +17,8 @@ const clientesSchema = new Schema({
     email:{
         type: String,
         lowercase: true,
-        trim: true
+        trim: true,
+        // unique: true
     },
     telefono: {
         type: String,
