@@ -46,9 +46,9 @@ exports.nuevoProducto = async (req, res, next) =>{
         }
 
         await producto.save();
-        res.json({ mensaje: 'Se agregó un nuevo producto'});
+        res.send({ mensaje: 'Se agregó un nuevo producto'});
     } catch (error) {
-        console.log(error);
+        res.send(error);
         next();
     }
 }
@@ -118,9 +118,9 @@ exports.eliminarProducto = async (req, res, next) =>{
         }
         
         await Productos.findOneAndDelete({ _id: req.params.idProducto });
-        res.json({ mensaje: 'El producto se ha eliminado' });
+        res.send({ mensaje: 'El producto se ha eliminado' });
     } catch (error) {
-        console.log(error);
+        res.send(error);
         next();
     }
 }
