@@ -5,7 +5,7 @@ exports.nuevoPedido = async (req, res, next) =>{
 
     try {
         await pedido.save();
-        res.json({ mensaje: 'Se agregó un nuevo pedido' });
+        res.send({ mensaje: 'Se agregó un nuevo pedido' });
     } catch (error) {
         console.log(error);
         next();
